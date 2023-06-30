@@ -9,8 +9,7 @@ Preset:
   m_Name: XRI Default Left Grab Move
   m_TargetType:
     m_NativeTypeID: 114
-    m_ManagedTypePPtr: {fileID: 11500000, guid: 8b94c4c83dec6a94fbaebf543478259e,
-      type: 3}
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 8b94c4c83dec6a94fbaebf543478259e, type: 3}
     m_ManagedTypeFallback: 
   m_Properties:
   - target: {fileID: 0}
