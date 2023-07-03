@@ -11,8 +11,6 @@ public class PMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position=cam.transform.position;
-        rb=GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,8 +23,8 @@ public class PMove : MonoBehaviour
         float posx=Input.GetAxis("Horizontal");
         float posz=Input.GetAxis("Vertical");
         if(posz!=0||posx!=0){
-            transform.position += toward.transform.forward * posz * 0.1f;
-
+            transform.position += toward.transform.forward * posz * 2f*Time.deltaTime;
+            cam.transform.position=transform.position;
             // Vector3 t=toward.transform.position;
             // Vector3 tt=new Vector3(t.x*posx,t.y,t.z*posz);
             // print(tt);
