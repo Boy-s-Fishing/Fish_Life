@@ -7,10 +7,12 @@ public class FishMove : MonoBehaviour
     
     public Vector3 pos;
     public GameObject navi;
+    public GameObject Player;
     public Rigidbody rb;
     
      public float speed=1f;
      public float sprintSpeed=2f;
+     bool run=false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,25 +26,44 @@ public class FishMove : MonoBehaviour
         toward();
        while (true) 
         {
-           walking();
-           rb.velocity =Vector3.zero;
-            float distance = Vector3.Distance(transform.position, pos); // 몬스터와 목적지 사이 거리 구하기 
-            if (distance <=0.1f) // 목적지와의 거리가 0.1 이하라면 목적지 다시 정함
-            {
-                toward();
+            rb.velocity =Vector3.zero;
+            if(!run){
+                walking();
+                float distance = Vector3.Distance(transform.position, pos); // 몬스터와 목적지 사이 거리 구하기 
+                if (distance <=0.1f) // 목적지와의 거리가 0.1 이하라면 목적지 다시 정함
+                    {
+                        toward();
+                    }
+            }else if(run){
+                running();
+                float distance = Vector3.Distance(transform.position, Player.transform.position);
+                Debug.Log(distance);
+                if (distance >=50f)
+                    {
+                        run=false;
+                        toward();
+                        
+                    }
             }
             
             yield return null;  
         }
 
     }
+  
+  //목적지
     void toward(){
-        do{
-        pos.x = Random.Range(-10f, 10f); // 목적지 x 값은 -3~3 사이 랜덤값
-        pos.z = Random.Range(-10f, 10f); // 목적지 z 값은 -3~3 사이 랜덤값
-        pos.y = Random.Range(-10f, 10f); // 목적지 y 값은 -3~3 사이 랜덤값
-        }while (Vector3.Distance(transform.position,pos)>=20);
+        if(Vector3.Distance(transform.position, Player.transform.position)<=5) run=true;
+        if(!run){
+            do{
+                pos.x += Random.Range(-10f, 10f); // 목적지 x 값은 -3~3 사이 랜덤값
+                pos.z += Random.Range(-10f, 10f); // 목적지 z 값은 -3~3 사이 랜덤값
+                pos.y += Random.Range(-10f, 10f); // 목적지 y 값은 -3~3 사이 랜덤값
+            }while (Vector3.Distance(transform.position,pos)<=20);
+        }        
     }
+
+    //이동
     void walking(){
         
         var dir = (pos - transform.position).normalized;
@@ -50,12 +71,16 @@ public class FishMove : MonoBehaviour
         StartCoroutine(RotateTowardsAngle(transform,navi.transform));
         transform.position += dir * speed * Time.deltaTime;
     }
+
+    //도망
     void running(){
-        
+        pos.x=transform.position.x+transform.position.x-Player.transform.position.x;
+        pos.y=transform.position.y;
+        pos.z=transform.position.z+transform.position.z-Player.transform.position.z;
         var dir = (pos - transform.position).normalized;
         navi.transform.LookAt(pos);
         StartCoroutine(RotateTowardsAngle(transform,navi.transform));
-        transform.position += dir * sprintSpeed * Time.deltaTime;
+        transform.position += (dir) * sprintSpeed * Time.deltaTime;
     }
 
     private void OnCollisionStay(Collision other) {
