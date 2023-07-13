@@ -16,7 +16,6 @@ public class FishMove : MonoBehaviour
      public float maxH=50;//최대높이
      public float minH=10;//최소높이
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +52,6 @@ public class FishMove : MonoBehaviour
         }
 
     }
-  
   //목적지
     void toward(){
         if(Vector3.Distance(transform.position, Player.transform.position)<=5) run=true;
