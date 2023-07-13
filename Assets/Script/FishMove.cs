@@ -13,11 +13,14 @@ public class FishMove : MonoBehaviour
      public float speed=1f;
      public float sprintSpeed=2f;
      bool run=false;
+     public float maxH=50;//최대높이
+     public float minH=10;//최소높이
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        pos=transform.position;
         StartCoroutine("Roaming");
     }
 
@@ -54,12 +57,14 @@ public class FishMove : MonoBehaviour
   //목적지
     void toward(){
         if(Vector3.Distance(transform.position, Player.transform.position)<=5) run=true;
+        Vector3 tempPos=new Vector3(0,0,0);           //반복문에 사용할 임시변수
         if(!run){
             do{
-                pos.x += Random.Range(-10f, 10f); // 목적지 x 값은 -3~3 사이 랜덤값
-                pos.z += Random.Range(-10f, 10f); // 목적지 z 값은 -3~3 사이 랜덤값
-                pos.y += Random.Range(-10f, 10f); // 목적지 y 값은 -3~3 사이 랜덤값
-            }while (Vector3.Distance(transform.position,pos)<=20);
+                tempPos.x = Random.Range(-10f, 10f); // 목적지 x 값은 -3~3 사이 랜덤값
+                tempPos.z = Random.Range(-10f, 10f); // 목적지 z 값은 -3~3 사이 랜덤값
+            }while (Vector3.Distance(transform.position,tempPos)<=20);
+            pos+=tempPos;
+            pos.y=tempPos.z = Random.Range(minH, maxH);
         }        
     }
 
