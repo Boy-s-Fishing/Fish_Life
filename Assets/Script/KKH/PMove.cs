@@ -7,6 +7,7 @@ public class PMove : MonoBehaviour
     public GameObject toward;
     public GameObject cam;
     public Rigidbody rb;
+    public float speed=4f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class PMove : MonoBehaviour
         float posx=Input.GetAxis("Horizontal");
         float posz=Input.GetAxis("Vertical");
         if(posz!=0||posx!=0){
-            transform.position += toward.transform.forward * posz * 2f*Time.deltaTime;
+            transform.position += toward.transform.forward * posz * speed *Time.deltaTime;
             cam.transform.position=transform.position;
             // Vector3 t=toward.transform.position;
             // Vector3 tt=new Vector3(t.x*posx,t.y,t.z*posz);
