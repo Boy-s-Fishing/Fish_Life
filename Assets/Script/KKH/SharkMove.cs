@@ -29,17 +29,20 @@ public class SharkMove : FishMove
     transform.position += (dir) * sprintSpeed * Time.deltaTime;
     float distance = Vector3.Distance(transform.position, Player.transform.position);
     if (distance >=20f)
-        {
-            run=false;
-            _animator.SetBool(_fastswim,false);
-            _animator.SetBool(_swim,true);
-            toward();
+    {
+        run=false;
+        _animator.SetBool(_fastswim,false);
+         _animator.SetBool(_swim,true);
+         toward();
                         
-        }else if(distance<=2&&!bite){
-            bite=true;
-            _animator.SetBool(_bite,true);
-            Player.GetComponent<Pstate>().Dead();
-            _animator.SetBool(_bite,false);
-        }
+    }
+    float distance2 = Vector3.Distance(navi.transform.position, Player.transform.position);
+    if(distance2<=1.5&&!bite){
+         bite=true;
+         _animator.SetBool(_bite,true);
+         Player.GetComponent<Pstate>().Dead();
+         _animator.SetBool(_bite,false);
+     }
+        
     }
 }
