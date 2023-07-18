@@ -12,18 +12,19 @@ public class FishMove : MonoBehaviour
     
      public float speed=1f;
      public float sprintSpeed=2f;
-     bool run=false;
+     public bool run=false;
      public float maxH=50;//최대높이
      public float minH=10;//최소높이
+     public float loookDis=5;  //물고기가 플레이어를 인식하는 거리
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         pos=transform.position;
         StartCoroutine("Roaming");
     }
 
-     IEnumerator Roaming()
+    public IEnumerator Roaming()
     {
         toward();
        while (true) 
@@ -38,14 +39,6 @@ public class FishMove : MonoBehaviour
                     }
             }else if(run){
                 running();
-                float distance = Vector3.Distance(transform.position, Player.transform.position);
-                Debug.Log(distance);
-                if (distance >=50f)
-                    {
-                        run=false;
-                        toward();
-                        
-                    }
             }
             
             yield return null;  
@@ -53,8 +46,8 @@ public class FishMove : MonoBehaviour
 
     }
   //목적지
-    void toward(){
-        if(Vector3.Distance(transform.position, Player.transform.position)<=5) run=true;
+    public void toward(){
+        if(Vector3.Distance(transform.position, Player.transform.position)<=loookDis) run=true;
         Vector3 tempPos=new Vector3(0,0,0);           //반복문에 사용할 임시변수
         if(!run){
             do{
@@ -67,7 +60,7 @@ public class FishMove : MonoBehaviour
     }
 
     //이동
-    void walking(){
+    public void walking(){
         
         var dir = (pos - transform.position).normalized;
         navi.transform.LookAt(pos);
@@ -76,7 +69,7 @@ public class FishMove : MonoBehaviour
     }
 
     //도망
-    void running(){
+    public virtual void running(){
         pos.x=transform.position.x+transform.position.x-Player.transform.position.x;
         pos.y=transform.position.y;
         pos.z=transform.position.z+transform.position.z-Player.transform.position.z;
@@ -84,9 +77,16 @@ public class FishMove : MonoBehaviour
         navi.transform.LookAt(pos);
         StartCoroutine(RotateTowardsAngle(transform,navi.transform));
         transform.position += (dir) * sprintSpeed * Time.deltaTime;
+        float distance = Vector3.Distance(transform.position, Player.transform.position);
+        if (distance >=20f)
+            {
+                run=false;
+                toward();
+                        
+            }
     }
 
-    private void OnCollisionStay(Collision other) {
+    public void OnCollisionStay(Collision other) {
         
         toward();
     }
