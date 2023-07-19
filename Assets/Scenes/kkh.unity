@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!205 &59041286
 LODGroup:
   m_ObjectHideFlags: 0
@@ -309,7 +309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59041285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.74, y: 1.69, z: 6.79}
+  m_LocalPosition: {x: 3.74, y: 10.01, z: 6.79}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -744,7 +744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179834793}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 17.14, y: 0.000000052639592, z: 10.37}
+  m_LocalPosition: {x: 17.14, y: 6.89, z: 10.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2553,7 +2553,7 @@ GameObject:
   - component: {fileID: 1111132923}
   m_Layer: 0
   m_Name: XR Origin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2597,7 +2597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111132916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.43, z: 0}
+  m_LocalPosition: {x: 0, y: 10.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2682,6 +2682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameoverPanel: {fileID: 1773166556}
+  level: 1
+  exp: 0
 --- !u!1 &1141042640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6492524216070279007, guid: 0b3e0cf73ed1cb44c80670e7f060ff10, type: 3}
@@ -2764,6 +2766,19 @@ CapsuleCollider:
   m_Height: 1.9972895
   m_Direction: 2
   m_Center: {x: -0.15, y: 0.1, z: 0}
+--- !u!114 &1141042647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141042640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911f9e9a4537d494d90f64ba791281a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
 --- !u!1 &1176180754
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,6 +3733,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6492524216070279007, guid: 0b3e0cf73ed1cb44c80670e7f060ff10, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1141042646}
+    - targetCorrespondingSourceObject: {fileID: 6492524216070279007, guid: 0b3e0cf73ed1cb44c80670e7f060ff10, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1141042647}
   m_SourcePrefab: {fileID: 100100000, guid: 0b3e0cf73ed1cb44c80670e7f060ff10, type: 3}
 --- !u!1 &2022202696
 GameObject:
