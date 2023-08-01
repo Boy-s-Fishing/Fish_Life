@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Underwater : MonoBehaviour
+public class Underwater_ : MonoBehaviour
 {
 
    bool fogEnabled;
