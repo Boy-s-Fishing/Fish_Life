@@ -17,10 +17,15 @@ public class FishMove : MonoBehaviour
      public float minH=10;//최소높이
      public float loookDis=5;  //물고기가 플레이어를 인식하는 거리
 
+     protected GameObject obj;
+
     // Start is called before the first frame update
     public void Start()
     {
         pos=transform.position;
+        obj=Instantiate(navi, transform.position, transform.rotation) ;
+        obj.transform.parent=this.transform;
+        rb=gameObject.GetComponent<Rigidbody>();
         StartCoroutine("Roaming");
     }
 
@@ -63,8 +68,8 @@ public class FishMove : MonoBehaviour
     public void walking(){
         
         var dir = (pos - transform.position).normalized;
-        navi.transform.LookAt(pos);
-        StartCoroutine(RotateTowardsAngle(transform,navi.transform));
+        obj.transform.LookAt(pos);
+        StartCoroutine(RotateTowardsAngle(transform,obj.transform));
         transform.position += dir * speed * Time.deltaTime;
     }
 
@@ -74,8 +79,8 @@ public class FishMove : MonoBehaviour
         pos.y=transform.position.y;
         pos.z=transform.position.z+transform.position.z-Player.transform.position.z;
         var dir = (pos - transform.position).normalized;
-        navi.transform.LookAt(pos);
-        StartCoroutine(RotateTowardsAngle(transform,navi.transform));
+        obj.transform.LookAt(pos);
+        StartCoroutine(RotateTowardsAngle(transform,obj.transform));
         transform.position += (dir) * sprintSpeed * Time.deltaTime;
         float distance = Vector3.Distance(transform.position, Player.transform.position);
         if (distance >=20f)
@@ -122,7 +127,7 @@ public class FishMove : MonoBehaviour
     Quaternion targetRotation = Quaternion.Euler(NTransform.eulerAngles.x, NTransform.eulerAngles.y, NTransform.eulerAngles.z);
 
     float elapsedTime = 0f;
-    float duration=5f;
+    float duration=1f;
     while (elapsedTime < duration)
     {
         elapsedTime += Time.deltaTime;
