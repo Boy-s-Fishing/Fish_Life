@@ -13,7 +13,7 @@ public class Encyclopedia : MonoBehaviour
         var loaded = Resources.Load("Data") as TextAsset;
         data d = JsonUtility.FromJson<data>(loaded.ToString());
         foreach(dataInfo data in d.datas)
-            info.Add(data.name, data);
+            info.Add(data.id, data);
         
         card();
     }
@@ -44,7 +44,7 @@ class data
 [System.Serializable]
 public class dataInfo
 {
-    public int id;
+    public string id;
     public string name;
     public string food;
     public string explanation;

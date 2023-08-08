@@ -6,9 +6,9 @@ public class Card : MonoBehaviour
 {
     dataInfo data;
     // Start is called before the first frame update
-    public void set(string name, dataInfo d) {
+    public void set(string id, dataInfo d) {
         data = d;
-        gameObject.name = data.name;
+        gameObject.name = id;
     }
 
 }
