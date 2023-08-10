@@ -1085,8 +1085,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
-  navi: {fileID: 8551643404915769394}
-  Player: {fileID: 0}
+  navi: {fileID: 4649279489842740050, guid: aebe5c11bdee4fa4380868931735c76d, type: 3}
+  Player: {fileID: 4024466156412045125, guid: e65ec9a2cd603b84996db942228c7183, type: 3}
   rb: {fileID: 6893487290147441028}
   speed: 1
   sprintSpeed: 2
@@ -1094,6 +1094,7 @@ MonoBehaviour:
   maxH: 50
   minH: 10
   loookDis: 10
+  mouth: {fileID: 8551643404915769394}
 --- !u!54 &6893487290147441028
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1311,7 +1312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5547486977970642488}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

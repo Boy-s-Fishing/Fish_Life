@@ -6,6 +6,7 @@ public class SharkMove : FishMove
 {
     
     private Animator _animator;
+    public GameObject mouth;
     bool bite=false;
     private int _bite;
     private int _swim;
@@ -22,10 +23,8 @@ public class SharkMove : FishMove
     _animator.SetBool(_fastswim,true);
     pos=Player.transform.position;
     var dir = (pos - transform.position).normalized;
-    Debug.Log(pos - transform.position);
-    Debug.Log(dir);
-    navi.transform.LookAt(pos);
-    StartCoroutine(RotateTowardsAngle(transform,navi.transform));
+    obj.transform.LookAt(pos);
+    StartCoroutine(RotateTowardsAngle(transform,obj.transform));
     transform.position += (dir) * sprintSpeed * Time.deltaTime;
     float distance = Vector3.Distance(transform.position, Player.transform.position);
     if (distance >=20f)
@@ -36,7 +35,7 @@ public class SharkMove : FishMove
          toward();
                         
     }
-    float distance2 = Vector3.Distance(navi.transform.position, Player.transform.position);
+    float distance2 = Vector3.Distance(mouth.transform.position, Player.transform.position);
     if(distance2<=1.5&&!bite){
          bite=true;
          _animator.SetBool(_bite,true);
