@@ -5,26 +5,22 @@ using UnityEngine;
 public class Encyclopedia : MonoBehaviour
 {
     string name;
-    public GameObject prefab;
-    Dictionary<string, dataInfo> info = new Dictionary<string, dataInfo>();
+    Dictionary<string, dataInfo> info;
     
     private void Start() {
         name = gameObject.name;
         var loaded = Resources.Load("Data") as TextAsset;
         data d = JsonUtility.FromJson<data>(loaded.ToString());
         foreach(dataInfo data in d.datas)
-            info.Add(data.id, data);
-        
-        card();
+            info.Add(data.name, data);
     }
 
     void card() {
-        foreach(KeyValuePair<string, dataInfo> k in info) {
-            GameObject g = Instantiate(prefab, transform);
-            g.AddComponent<Card>().set(k.Key, k.Value);
-        }
-        print("fin");
+        
     }
+
+
+
 }
 
 
@@ -42,11 +38,10 @@ class data
 }
 
 [System.Serializable]
-public class dataInfo
+class dataInfo
 {
-    public string id;
+    public int id;
     public string name;
-    public string ename;
     public string food;
     public string explanation;
 }

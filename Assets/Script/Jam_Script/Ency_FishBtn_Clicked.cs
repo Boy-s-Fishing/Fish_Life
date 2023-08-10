@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Ency_FishBtn_Clicked : MonoBehaviour
 {
-    public int num;   //ï¿½ï¿½Æ° ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ï¿½
+    public int num;   //¹öÆ° ¸î¹øÂ°ÀÎÁö
     public Ency_Button_Obj_On Ency_Button_Obj_On;
 
     private void Awake()
     {
-        //ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½Æ® Ã£ï¿½ï¿½
+        //¸Å´ÏÀú½ºÅ©¸³Æ® Ã£±â
         Ency_Button_Obj_On = GameObject.FindWithTag("GameManager").GetComponent<Ency_Button_Obj_On>();
     }
 
