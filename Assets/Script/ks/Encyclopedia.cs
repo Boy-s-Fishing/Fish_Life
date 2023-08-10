@@ -46,6 +46,7 @@ public class dataInfo
 {
     public string id;
     public string name;
+    public string ename;
     public string food;
     public string explanation;
 }
