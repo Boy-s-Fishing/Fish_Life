@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Encyclopedia : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class Encyclopedia : MonoBehaviour
         foreach(KeyValuePair<string, dataInfo> k in info) {
             GameObject g = Instantiate(prefab, transform);
             g.AddComponent<Card>().set(k.Key, k.Value);
+            
+            Texture2D image = (Texture2D)Resources.Load("image/" + k.Value.ename);
+            Rect rect = new Rect(0, 0, image.width, image.height);
+            g.GetComponent<Image>().sprite = Sprite.Create(image, rect, new Vector2(0.5f, 0.5f));
+
         }
         print("fin");
     }
@@ -48,5 +54,7 @@ public class dataInfo
     public string name;
     public string ename;
     public string food;
+    public string habitat;
+    public string species;
     public string explanation;
 }

@@ -26,12 +26,20 @@ public class Card : MonoBehaviour
     
     public void click (){
         //물고기 프리팹 등장해야됨
-        canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = data.explanation;
+
+        string s = 
+        "이름 : " + data.name + "\n\n" + 
+        "종 : " + data.species + "\n\n" +
+        "주식 : " + data.food + "\n\n" +
+        "서식지 : " + data.habitat + "\n\n" +
+        " - " + data.explanation;
+        canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = s;
+
+        for (int i = 0; i < canvas.transform.GetChild(2).childCount; i++)
+            Destroy(canvas.transform.GetChild(2).GetChild(i).gameObject);
+    
+        GameObject g = Instantiate(fish, canvas.transform.GetChild(2));
+        g.transform.localScale = new Vector3(75, 75, 75);
+        g.GetComponent<FishMove>().enabled = false;
     }
-
-
-
-
-
-
 }
