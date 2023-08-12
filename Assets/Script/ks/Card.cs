@@ -36,10 +36,7 @@ public class Card : MonoBehaviour
         canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = s;
 
         for (int i = 0; i < canvas.transform.GetChild(2).childCount; i++)
-            Destroy(canvas.transform.GetChild(2).GetChild(i).gameObject);
-    
-        GameObject g = Instantiate(fish, canvas.transform.GetChild(2));
-        g.transform.localScale = new Vector3(75, 75, 75);
-        g.GetComponent<FishMove>().enabled = false;
+            canvas.transform.GetChild(2).GetChild(i).gameObject.SetActive(false);
+        canvas.transform.GetChild(2).GetChild(int.Parse(data.id)).gameObject.SetActive(true);
     }
 }
