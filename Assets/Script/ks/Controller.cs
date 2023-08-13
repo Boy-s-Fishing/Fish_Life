@@ -14,6 +14,10 @@ public class Controller : MonoBehaviour
     InputDevice device;
     bool push = false;
 
+    private void Start() {
+        setting.SetActive(false);
+    }
+    
     private void Update()
     {
         CommonInput();
@@ -36,23 +40,5 @@ public class Controller : MonoBehaviour
             else if (!primary && push)
                 push = false;
         }
-    }
-
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        DontDestroyOnLoad(this);
-        device = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-
-        setting.SetActive(false);
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

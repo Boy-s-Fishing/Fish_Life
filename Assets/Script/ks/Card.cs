@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class Card : MonoBehaviour
 {
+    bool tf = false;
     dataInfo data;
     GameObject fish;
     GameObject canvas;
@@ -19,13 +21,21 @@ public class Card : MonoBehaviour
     public void set(string id, dataInfo d) {
         data = d;
         gameObject.name = id;
-        try {
-        fish = (GameObject) Resources.Load("fish/"+d.ename);
-        } catch {}
+        foreach(string name in eternal.saveinfo.collection)
+            if(data.name.Contains(name)){
+                tf = true;
+                fish = (GameObject) Resources.Load("fish/"+d.ename);
+                Texture2D image = (Texture2D)Resources.Load("image/"+d.ename);
+                Rect rect = new Rect(0, 0, image.width, image.height);
+                gameObject.GetComponent<Image>().sprite = Sprite.Create(image, rect, new Vector2(0.5f, 0.5f));
+               
+                break;
+            }
     }
     
     public void click (){
-        //물고기 프리팹 등장해야됨
+        if (!tf)
+            return;
 
         string s = 
         "이름 : " + data.name + "\n\n" + 
