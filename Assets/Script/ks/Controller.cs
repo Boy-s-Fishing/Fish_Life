@@ -9,11 +9,11 @@ using UnityEngine.Audio;
 
 public class Controller : MonoBehaviour
 {
-    GameObject setting;
-    public AudioMixer mixer;
+    public GameObject setting;
 
     InputDevice device;
     bool push = false;
+
 
     private void Update()
     {
@@ -46,6 +46,7 @@ public class Controller : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        DontDestroyOnLoad(this);
         device = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
 
         setting.SetActive(false);
