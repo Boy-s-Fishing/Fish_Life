@@ -38,7 +38,6 @@ public class Controller : MonoBehaviour
                 push = false;
         }
     }
-    
 
     void OnEnable()
     {
