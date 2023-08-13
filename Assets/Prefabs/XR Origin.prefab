@@ -494,7 +494,7 @@ Transform:
   m_Children:
   - {fileID: 5442609699873296277}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3915581972455749887
 MonoBehaviour:
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 4024466156412045125}
   m_CameraFloorOffsetObject: {fileID: 6446052457148251932}
   m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.1123
+  m_CameraYOffset: 0
 --- !u!114 &1319184191264929959
 MonoBehaviour:
   m_ObjectHideFlags: 0
