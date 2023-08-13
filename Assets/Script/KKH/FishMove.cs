@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FishMove : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class FishMove : MonoBehaviour
         toward();
        while (true) 
         {
+
             rb.velocity =Vector3.zero;
             if(!run){
                 walking();
@@ -69,7 +71,7 @@ public class FishMove : MonoBehaviour
         
         var dir = (pos - transform.position).normalized;
         obj.transform.LookAt(pos);
-        StartCoroutine(RotateTowardsAngle(transform,obj.transform));
+        StartCoroutine(RotateTowardsAngle(this.transform,obj.transform));
         transform.position += dir * speed * Time.deltaTime;
     }
 
@@ -80,7 +82,7 @@ public class FishMove : MonoBehaviour
         pos.z=transform.position.z+transform.position.z-Player.transform.position.z;
         var dir = (pos - transform.position).normalized;
         obj.transform.LookAt(pos);
-        StartCoroutine(RotateTowardsAngle(transform,obj.transform));
+        StartCoroutine(RotateTowardsAngle(this.transform,obj.transform));
         transform.position += (dir) * sprintSpeed * Time.deltaTime;
         float distance = Vector3.Distance(transform.position, Player.transform.position);
         if (distance >=20f)
@@ -136,4 +138,18 @@ public class FishMove : MonoBehaviour
         yield return null;
     }
 }
+
+//    public IEnumerator RotateTowardsAngle(Vector3 NTransform)  
+// {
+
+//     float elapsedTime = 0f;
+//     float duration=1f;
+//     while (elapsedTime < duration)
+//     {
+//         elapsedTime += Time.deltaTime;
+//         float t = Mathf.Clamp01(elapsedTime / duration);
+//         myTransform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+//         yield return null;
+//     }
+// }
 }
