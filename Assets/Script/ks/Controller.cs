@@ -14,7 +14,6 @@ public class Controller : MonoBehaviour
     InputDevice device;
     bool push = false;
 
-
     private void Update()
     {
         CommonInput();
