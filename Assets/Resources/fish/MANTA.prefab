@@ -349,6 +349,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a80c3cb771b00934d912fc2b99c06b08, type: 2}
+    - target: {fileID: 1080489139793146338, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080489139793146338, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080489139793146338, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8899630568314933217, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}
       propertyPath: m_RootOrder
       value: -1
