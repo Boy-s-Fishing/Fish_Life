@@ -9,19 +9,6 @@ public class eternal : MonoBehaviour
     public static save saveinfo;
     public static Dictionary<string, dataInfo> datainfo = new Dictionary<string, dataInfo>();
 
-    private static void Awake() {
-        var loaded = Resources.Load("Save") as TextAsset;
-        saveinfo = JsonUtility.FromJson<save>(loaded.ToString());
-
-
-        loaded = Resources.Load("Data") as TextAsset;
-        data d = JsonUtility.FromJson<data>(loaded.ToString());
-        foreach(dataInfo data in d.datas)
-            datainfo.Add(data.id, data);
-
-        print(saveinfo);
-        
-    }
 
     void setting (){
         var loaded = Resources.Load("Save") as TextAsset;
@@ -31,7 +18,7 @@ public class eternal : MonoBehaviour
         loaded = Resources.Load("Data") as TextAsset;
         data d = JsonUtility.FromJson<data>(loaded.ToString());
         foreach(dataInfo data in d.datas)
-            datainfo.Add(data.id, data);
+            datainfo.Add(data.ename, data);
     }
     
     void OnEnable()
@@ -55,7 +42,7 @@ public class eternal : MonoBehaviour
 [System.Serializable]
 public class save
 {
-    public string[] collection;
+    public List<string> collection;
 }
 
 
