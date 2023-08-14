@@ -11,6 +11,9 @@ public class eternal : MonoBehaviour
     public static save saveinfo;
     public static Dictionary<string, dataInfo> datainfo = new Dictionary<string, dataInfo>();
 
+    private void Start() {
+        setting();
+    }
 
     void setting (){
         var loaded = Resources.Load("Data") as TextAsset;
@@ -43,7 +46,6 @@ public class eternal : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        setting();
         DontDestroyOnLoad(this);
     }
 

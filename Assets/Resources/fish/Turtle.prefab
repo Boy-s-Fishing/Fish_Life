@@ -405,6 +405,14 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8620860101926766536, guid: a26abd652c2054141ad9499ebfd4eb87, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620860101926766536, guid: a26abd652c2054141ad9499ebfd4eb87, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5305367355318540612, guid: a26abd652c2054141ad9499ebfd4eb87, type: 3}
     m_RemovedGameObjects: []

@@ -42,7 +42,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1061,6 +1061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6948165545811642468}
     m_Modifications:
+    - target: {fileID: 1078687646423232331, guid: 74acb24a02574754c8c35215b8612f57, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1078687646423232331, guid: 74acb24a02574754c8c35215b8612f57, type: 3}
       propertyPath: m_SkinnedMotionVectors
       value: 0

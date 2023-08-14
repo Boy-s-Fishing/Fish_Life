@@ -18,6 +18,7 @@ public class Fstate : MonoBehaviour
             if(comlevel>=level){
                 other.gameObject.GetComponent<Pstate>().exp+=level*10;
                 
+                Sound.play(1);
                 transform.position = new Vector3 (0, -1235513124134123, 2);
                 StartCoroutine(text(other.gameObject));
             }
@@ -58,8 +59,8 @@ public class Fstate : MonoBehaviour
             print("- " + a);
             yield return new WaitForEndOfFrame();
         }
-        
-
+        color.a = 0;
+        text.color = color;
         Destroy(transform.parent.gameObject);
     }
 
