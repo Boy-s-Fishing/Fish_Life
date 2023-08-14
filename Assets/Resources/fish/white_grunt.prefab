@@ -353,6 +353,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: white_grunt
       objectReference: {fileID: 0}
+    - target: {fileID: 6465347609037448562, guid: d8772a7bdb6a39245ad799f3a5f77a80, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465347609037448562, guid: d8772a7bdb6a39245ad799f3a5f77a80, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8714397962633579318, guid: d8772a7bdb6a39245ad799f3a5f77a80, type: 3}
       propertyPath: m_RootOrder
       value: -1

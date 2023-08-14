@@ -9,8 +9,10 @@ public class Encyclopedia : MonoBehaviour
     public GameObject prefab;
     Dictionary<string, dataInfo> info = new Dictionary<string, dataInfo>();
     
-    private void Start() {
-        name = gameObject.name;
+    private void OnEnable() {
+        for (int i = 0; i < transform.childCount; i++){
+            Destroy(transform.GetChild(i).gameObject);
+        }
         card();
     }
 
