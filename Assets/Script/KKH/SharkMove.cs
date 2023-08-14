@@ -5,14 +5,13 @@ using UnityEngine;
 public class SharkMove : FishMove
 {
     
-    private Animator _animator;
+    public Animator _animator;
     public GameObject mouth;
     bool bite=false;
     private int _bite;
     private int _swim;
     private int _fastswim;
     private void Awake() {
-        _animator=GetComponent<Animator>();
         _bite = Animator.StringToHash("bite");
         _swim = Animator.StringToHash("swim");
         _fastswim = Animator.StringToHash("fastswim");
@@ -22,9 +21,8 @@ public class SharkMove : FishMove
     _animator.SetBool(_swim,false);
     _animator.SetBool(_fastswim,true);
     pos=Player.transform.position;
-    var dir = (pos - transform.position).normalized;
-    obj.transform.LookAt(pos);
-    StartCoroutine(RotateTowardsAngle(transform,obj.transform));
+    Vector3 dir = (pos - transform.position).normalized;
+    StartCoroutine(RotateTowardsAngle(dir));
     transform.position += (dir) * sprintSpeed * Time.deltaTime;
     float distance = Vector3.Distance(transform.position, Player.transform.position);
     if (distance >=20f)
