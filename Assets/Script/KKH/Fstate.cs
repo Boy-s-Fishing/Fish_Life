@@ -23,4 +23,5 @@ public class Fstate : MonoBehaviour
         con=false;
     }
 
+
 }
