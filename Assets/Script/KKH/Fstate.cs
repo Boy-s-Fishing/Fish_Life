@@ -23,4 +23,11 @@ public class Fstate : MonoBehaviour
         con=false;
     }
 
+    public void OnCollisionStay(Collision other) {
+        con=true;
+    }
+    private void OnCollisionExit(Collision other) {
+        con=false;
+    }
+
 }
