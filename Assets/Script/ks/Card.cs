@@ -7,9 +7,8 @@ using TMPro;
 
 public class Card : MonoBehaviour
 {
-    bool tf = false;
+    bool have = false;
     dataInfo data;
-    GameObject fish;
     GameObject canvas;
 
     private void Start() {
@@ -23,9 +22,8 @@ public class Card : MonoBehaviour
         gameObject.name = id;
         foreach(string name in eternal.saveinfo.collection)
             if(data.name.Contains(name)){
-                tf = true;
-                fish = (GameObject) Resources.Load("fish/"+d.ename);
-                Texture2D image = (Texture2D)Resources.Load("image/"+d.ename);
+                have = true;
+                Texture2D image = (Texture2D)Resources.Load("image/"+data.ename);
                 Rect rect = new Rect(0, 0, image.width, image.height);
                 gameObject.GetComponent<Image>().sprite = Sprite.Create(image, rect, new Vector2(0.5f, 0.5f));
                
@@ -34,7 +32,7 @@ public class Card : MonoBehaviour
     }
     
     public void click (){
-        if (!tf)
+        if (!have)
             return;
 
         string s = 
@@ -47,6 +45,10 @@ public class Card : MonoBehaviour
 
         for (int i = 0; i < canvas.transform.GetChild(2).childCount; i++)
             canvas.transform.GetChild(2).GetChild(i).gameObject.SetActive(false);
-        canvas.transform.GetChild(2).GetChild(int.Parse(data.id)).gameObject.SetActive(true);
+        
+        canvas.transform.GetChild(2).Find(data.ename).transform.position.Set(0f,0f,0f);
+        
+        canvas.transform.GetChild(2).Find(data.ename).gameObject.SetActive(true);
+        print(data.ename);
     }
 }
