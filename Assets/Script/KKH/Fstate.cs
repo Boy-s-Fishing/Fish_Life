@@ -12,7 +12,7 @@ public class Fstate : MonoBehaviour
     public int level=1;
 
     private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag=="Player"){
+        if(other.gameObject.CompareTag("Player")){
             int comlevel=other.gameObject.GetComponent<Pstate>().level;
             Debug.Log(comlevel);
             if(comlevel>=level){

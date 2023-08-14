@@ -398,7 +398,11 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8620860101926766536, guid: a26abd652c2054141ad9499ebfd4eb87, type: 3}
-      propertyPath: m_SkinnedMotionVectors
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620860101926766536, guid: a26abd652c2054141ad9499ebfd4eb87, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
