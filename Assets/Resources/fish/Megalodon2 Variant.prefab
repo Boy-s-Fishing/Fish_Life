@@ -147,6 +147,14 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6628708678734560748, guid: 68a40a6a9f38e204393df540baa289f6, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628708678734560748, guid: 68a40a6a9f38e204393df540baa289f6, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7812338889261069747, guid: 68a40a6a9f38e204393df540baa289f6, type: 3}
       propertyPath: m_Name
       value: Megalodon2 Variant

@@ -32,6 +32,7 @@ public class Card : MonoBehaviour
     }
     
     public void click (){
+        Sound.play(2);
         if (!have)
             return;
 
@@ -46,7 +47,7 @@ public class Card : MonoBehaviour
         for (int i = 0; i < canvas.transform.GetChild(2).childCount; i++)
             canvas.transform.GetChild(2).GetChild(i).gameObject.SetActive(false);
         
-        canvas.transform.GetChild(2).Find(data.ename).transform.position.Set(0f,0f,0f);
+        canvas.transform.GetChild(2).Find(data.ename).transform.localPosition = new Vector3 (0,0,0);
         
         canvas.transform.GetChild(2).Find(data.ename).gameObject.SetActive(true);
         print(data.ename);

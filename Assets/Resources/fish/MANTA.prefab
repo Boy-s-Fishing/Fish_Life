@@ -358,8 +358,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1080489139793146338, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080489139793146338, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}
       propertyPath: m_SkinnedMotionVectors
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8899630568314933217, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}
       propertyPath: m_RootOrder
