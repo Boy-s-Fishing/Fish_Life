@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class Fstate : MonoBehaviour
 {
+    public bool con=false;
     public int level=1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag=="Player"){
@@ -26,6 +16,13 @@ public class Fstate : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void OnCollisionStay(Collision other) {
+        con=true;
+    }
+    private void OnCollisionExit(Collision other) {
+        con=false;
     }
 
 }
