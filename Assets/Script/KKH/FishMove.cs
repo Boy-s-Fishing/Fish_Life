@@ -28,9 +28,11 @@ public class FishMove : MonoBehaviour
     {
         rb.velocity =Vector3.zero;
         toward();
-       while (true) 
+        while (true) 
         {
+            try{
             con=fish.gameObject.GetComponent<Fstate>().con;
+            } catch{break;}
             rb.velocity =Vector3.zero;
             if(!con){
                 if(!run){
