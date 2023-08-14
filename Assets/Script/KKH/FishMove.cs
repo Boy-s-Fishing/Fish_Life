@@ -35,7 +35,7 @@ public class FishMove : MonoBehaviour
             if(!con){
                 if(!run){
                     walking();
-                    float distance = Vector3.Distance(transform.position, pos); // 몬스터와 목적지 사이 거리 구하기 
+                    float distance = Vector3.Distance(transform.position, pos); // 물고기와 목적지 사이 거리 구하기 
                     if (distance <=0.1f) // 목적지와의 거리가 0.1 이하라면 목적지 다시 정함
                         {
                             toward();
@@ -53,35 +53,36 @@ public class FishMove : MonoBehaviour
   //목적지
     public void toward(){
         pos=transform.position;
-        Vector3 tempPos=new Vector3(0,0,0);           //반복문에 사용할 임시변수
+        Vector3 tempPos=new Vector3(0,transform.position.y,0);          // 반복문에 사용할 임시변수
         if(!run){
             do{
-                tempPos.x = Random.Range(-30f, 30f); // 목적지 x 값은 -3~3 사이 랜덤값
-                tempPos.z = Random.Range(-30f, 30f); // 목적지 z 값은 -3~3 사이 랜덤값
-            }while (Vector3.Distance(transform.position,tempPos)<=20);
-            pos+=tempPos;
-            pos.y=tempPos.z = Random.Range(minH, maxH);
+                tempPos=pos;
+                tempPos.x = pos.x+Random.Range(-20f, 20f);              // 목적지 x 값은 -20~20 사이 랜덤값    현재 위치를 기준으로 해서 랜덤으로 목적지 지정
+                tempPos.z = pos.z+Random.Range(-20f, 20f);              // 목적지 z 값은 -20~20 사이 랜덤값
+            }while (Vector3.Distance(transform.position,tempPos)<=10);  // 목적지와의 거리가 너무 가까우면 다시 지정
+            pos+=tempPos;                                               // 최종 목적지의 x, z값 지정
+            pos.y = Random.Range(minH, maxH);                           // y값은 지정된 범위만 이동하게 지정
         }        
     }
 
     //이동
     public void walking(){
         
-        Vector3 dir = (pos - transform.position).normalized;
-        StartCoroutine(RotateTowardsAngle(dir));
-        transform.position += dir * speed * Time.deltaTime;
+        Vector3 dir = (pos - transform.position).normalized;            // 목적지까지의 방향 정규화
+        StartCoroutine(RotateTowardsAngle(dir));                        // 목적지를 바라보게 회전
+        transform.position += dir * speed * Time.deltaTime;             // 해당 방향으로 이동
     }
 
     //도망
     public virtual void running(){
-        pos.x=transform.position.x+transform.position.x-Player.transform.position.x;
-        pos.y=transform.position.y;
+        pos.x=transform.position.x+transform.position.x-Player.transform.position.x;   // 현재 위치를 기준으로 플레이어가 있는 방향의 반대 방향을 목적지로 구함
+        pos.y=transform.position.y;                                                    // y값은 지정범위를 유지하기 위해 현재 높이로 유지
         pos.z=transform.position.z+transform.position.z-Player.transform.position.z;
         Vector3 dir = (pos - transform.position).normalized;
         StartCoroutine(RotateTowardsAngle(dir));
         transform.position += (dir) * sprintSpeed * Time.deltaTime;
-        float distance = Vector3.Distance(transform.position, Player.transform.position);
-        if (distance >=20f)
+        float distance = Vector3.Distance(transform.position, Player.transform.position); //플레이어와의 거리 측정
+        if (distance >=20f)  //춤분히 멀어지면 다시 목적지 정함
             {
                 run=false;
                 toward();
@@ -104,6 +105,7 @@ public class FishMove : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag=="Player"){
             run=true;
+            Player=other.gameObject;
         }
     }
     
