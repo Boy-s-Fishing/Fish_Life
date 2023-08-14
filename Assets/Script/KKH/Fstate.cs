@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UIElements;
 
 public class Fstate : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Fstate : MonoBehaviour
             if(comlevel>=level){
                 other.gameObject.GetComponent<Pstate>().exp+=level*10;
                 
-                Destroy(transform.parent.gameObject);
+                transform.position = new Vector3 (0, -1235513124134123, 2);
                 StartCoroutine(text(other.gameObject));
             }
         }else{
@@ -32,29 +33,34 @@ public class Fstate : MonoBehaviour
         string fish = eternal.datainfo[name].name;
         
         foreach(string c in eternal.saveinfo.collection)
-            if (c.Equals(fish))
+            if (c.Equals(fish)){
+                Destroy(transform.parent.gameObject);
                 yield return null;
-                
+            }
         print(fish);
         TextMeshProUGUI text = player.transform.GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
         string s = fish + "이(가) 도감에 추가되었습니다!";
         eternal.saveinfo.collection.Add(fish);
         text.text = s;
         
-        Color color = text.color;
-        for (float a = 0; a < 150; a+= 1){
+        Color32 color = text.color;
+        for (byte a = 0; a < 200; a+= 20){
             color.a = a;
             text.color = color;
-            print("+ " + a);
-            yield return new WaitForSeconds(0.1f);
+            print("+ " + a + " / " + text.color.a);
+            yield return new WaitForEndOfFrame();
         }
         
         yield return new WaitForSeconds(2f);
-        for (float a = 150; a > 0; a-= 0.3f){
+        for (byte a = 150; a > 0; a-= 5){
             color.a = a;
             text.color = color;
             print("- " + a);
+            yield return new WaitForEndOfFrame();
         }
+        
+
+        Destroy(transform.parent.gameObject);
     }
 
 }

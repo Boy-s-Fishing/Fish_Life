@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,15 +13,28 @@ public class eternal : MonoBehaviour
 
 
     void setting (){
-        var loaded = Resources.Load("Save") as TextAsset;
-        saveinfo = JsonUtility.FromJson<save>(loaded.ToString());
-
-
-        loaded = Resources.Load("Data") as TextAsset;
+        var loaded = Resources.Load("Data") as TextAsset;
         data d = JsonUtility.FromJson<data>(loaded.ToString());
         foreach(dataInfo data in d.datas)
             datainfo.Add(data.ename, data);
+        
+        string path = Path.Combine(Application.dataPath, "Save.json");
+        try{
+            string json = File.ReadAllText(path);
+            saveinfo = JsonUtility.FromJson<save>(json);
+
+        }catch{
+            loaded = Resources.Load("Save") as TextAsset;
+            saveinfo = JsonUtility.FromJson<save>(loaded.ToString());
+            File.WriteAllText(path, saveinfo.ToString());
+            }
     }
+
+    public static void setSave () {
+        string path = Path.Combine(Application.dataPath, "Save.json");
+        File.WriteAllText(path, saveinfo.ToString());
+    }
+
     
     void OnEnable()
     {

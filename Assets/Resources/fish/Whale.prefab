@@ -76,7 +76,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_SkinnedMotionVectors: 1
+  m_SkinnedMotionVectors: 0
   m_Mesh: {fileID: -2375818340568330458, guid: d81c38bb0fe63d744ad84269d9f32212, type: 3}
   m_Bones:
   - {fileID: 8033462160927832430}
@@ -1061,6 +1061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6948165545811642468}
     m_Modifications:
+    - target: {fileID: 1078687646423232331, guid: 74acb24a02574754c8c35215b8612f57, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3246694157389080967, guid: 74acb24a02574754c8c35215b8612f57, type: 3}
       propertyPath: m_Name
       value: Whale
