@@ -16,7 +16,8 @@ public class Fstate : MonoBehaviour
             Debug.Log(comlevel);
             if(comlevel>=level){
                 other.gameObject.GetComponent<Pstate>().exp+=level*10;
-                Destroy(gameObject);
+                
+                Destroy(transform.parent.gameObject);
                 StartCoroutine(text(other.gameObject));
             }
         }else{
