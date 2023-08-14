@@ -186,10 +186,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.28
   m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.18}
 --- !u!54 &9136794777280447311 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1951136836314658842, guid: 4b04cd52df07d0342b18f1c62eeee89a, type: 3}

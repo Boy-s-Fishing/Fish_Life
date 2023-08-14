@@ -15,11 +15,9 @@ public class Fstate : MonoBehaviour
                 other.gameObject.GetComponent<Pstate>().exp+=level*10;
                 Destroy(gameObject);
             }
+        }else{
+            con=true;
         }
-    }
-
-    public void OnCollisionStay(Collision other) {
-        con=true;
     }
     private void OnCollisionExit(Collision other) {
         con=false;
