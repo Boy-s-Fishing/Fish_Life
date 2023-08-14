@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3175362863868549851}
   - component: {fileID: 3463990281431495641}
+  - component: {fileID: -7763942975421420388}
   m_Layer: 0
   m_Name: Megalodon2 Variant
   m_TagString: Untagged
@@ -57,6 +58,27 @@ MonoBehaviour:
   con: 0
   _animator: {fileID: 5474015135494649226}
   mouth: {fileID: 4295852916576042579}
+--- !u!135 &-7763942975421420388
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011288863146493112}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3.9
+  m_Center: {x: 0, y: 1.14, z: -2.07}
 --- !u!1001 &5562056770194914913
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -209,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6948165545811642468}
   - component: {fileID: 3647144495409879564}
+  - component: {fileID: 3968731709923565061}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Untagged
@@ -254,6 +255,27 @@ MonoBehaviour:
   maxH: 35
   minH: 25
   con: 0
+--- !u!135 &3968731709923565061
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659155002789231927}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1728257172082508739
 GameObject:
   m_ObjectHideFlags: 0

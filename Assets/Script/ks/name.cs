@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Name : MonoBehaviour
 {
-    GameObject name;
+    TextMeshProUGUI name;
 
     void Start()
     {
-        name = transform.GetChild(transform.childCount).gameObject;
+        name = transform.GetChild(transform.childCount-1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        name.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag=="Player"){
-            name.SetActive(true);
+            name.enabled = true;
         }
     }
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.tag=="Player"){
-            name.SetActive(false);
+            name.enabled = false;
         }
     }
 }

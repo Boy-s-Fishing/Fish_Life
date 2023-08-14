@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6718566763566375800}
   - component: {fileID: 1973165701440337250}
-  - component: {fileID: -68622374211602581}
+  - component: {fileID: 3717597423961965935}
+  - component: {fileID: 7693017293733037959}
   m_Layer: 0
   m_Name: dolphin
   m_TagString: Untagged
@@ -57,8 +58,8 @@ MonoBehaviour:
   maxH: 25
   minH: 15
   con: 0
---- !u!65 &-68622374211602581
-BoxCollider:
+--- !u!135 &3717597423961965935
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -72,12 +73,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 2.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7693017293733037959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589021176173040474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6c5a72feb7a5d4485b4f0592f2492a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2052312054959940846
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,10 +157,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\uB3CC\uACE0\uB798"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b6c5fc5c79fa4740926197a085ba40e, type: 2}
+  m_sharedMaterial: {fileID: -6761449719637460309, guid: 7b6c5fc5c79fa4740926197a085ba40e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -171,8 +184,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
