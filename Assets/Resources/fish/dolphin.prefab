@@ -337,6 +337,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6718566763566375800}
     m_Modifications:
+    - target: {fileID: 1266572634390213717, guid: db72a239f4fa09344bf26002a3521ea2, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1367374614157447560, guid: db72a239f4fa09344bf26002a3521ea2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.38599968

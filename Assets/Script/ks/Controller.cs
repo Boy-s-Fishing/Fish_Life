@@ -32,31 +32,21 @@ private void OnEnable() {
         CommonInput();
     }
 
-    void Checked(InputDevice d) {
-        d.TryGetFeatureValue(CommonUsages.menuButton, out bool primary);
-        if (primary)
-            print("cl");
-    }
-
     private void CommonInput()
     {
         // 메뉴버튼
         device.TryGetFeatureValue(CommonUsages.menuButton, out bool primary);
-        if (primary)
+        if (primary && !push)
         {
             print("cl");
-            if (primary && !push)
-            {
-                push = true;
-                // on/off
-                if (setting.activeSelf)
-                    setting.SetActive(false);
-                else
-                    setting.SetActive(true);
-            }
-            else if (!primary && push)
-                push = false;
+            push = true;
+            // on/off
+            if (setting.activeSelf)
+                setting.SetActive(false);
+            else
+                setting.SetActive(true);
         }
+        else if (!primary && push)
+            push = false;
     }
-
 }
