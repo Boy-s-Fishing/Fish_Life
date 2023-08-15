@@ -12,6 +12,7 @@ public class Fstate : MonoBehaviour
     public int level=1;
 
     private void OnCollisionEnter(Collision other) {
+        print("coll" + other.gameObject.name);
         if(other.gameObject.CompareTag("Player")){
             int comlevel=other.gameObject.GetComponent<Pstate>().level;
             Debug.Log(comlevel);
@@ -48,7 +49,6 @@ public class Fstate : MonoBehaviour
         for (byte a = 0; a < 200; a+= 20){
             color.a = a;
             text.color = color;
-            print("+ " + a + " / " + text.color.a);
             yield return new WaitForEndOfFrame();
         }
         
@@ -56,7 +56,6 @@ public class Fstate : MonoBehaviour
         for (byte a = 150; a > 0; a-= 5){
             color.a = a;
             text.color = color;
-            print("- " + a);
             yield return new WaitForEndOfFrame();
         }
         color.a = 0;

@@ -451,10 +451,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
-  m_Height: 1
+  m_Radius: 0.32855764
+  m_Height: 1.0677569
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0, y: 0, z: -0.03387835}
 --- !u!4 &7295236178898283084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883093711531926762, guid: a26abd652c2054141ad9499ebfd4eb87, type: 3}

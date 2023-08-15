@@ -40,7 +40,6 @@ public class Card : MonoBehaviour
         "이름 : " + data.name + "\n\n" + 
         "종 : " + data.species + "\n\n" +
         "주식 : " + data.food + "\n\n" +
-        "서식지 : " + data.habitat + "\n\n" +
         " - " + data.explanation;
         canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = s;
 
