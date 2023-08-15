@@ -34,7 +34,7 @@ public class SharkMove : FishMove
                         
     }
     float distance2 = Vector3.Distance(mouth.transform.position, Player.transform.position);
-    if(distance2<=1.5&&!bite){
+    if(distance2 <= 3&&!bite){
          bite=true;
          _animator.SetBool(_bite,true);
          Player.GetComponent<Pstate>().Dead();

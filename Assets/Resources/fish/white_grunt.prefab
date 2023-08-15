@@ -446,10 +446,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.86
-  m_Height: 8.72
+  m_Radius: 2.7456315
+  m_Height: 10.081698
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.31827667, z: 0.2255766}
 --- !u!4 &7707568325492886513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8714397962633579318, guid: d8772a7bdb6a39245ad799f3a5f77a80, type: 3}
