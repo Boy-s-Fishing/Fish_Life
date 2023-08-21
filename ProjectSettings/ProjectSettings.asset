@@ -154,7 +154,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.BoysFishing.Fish_Life
+    Android: com.BoysFishing.FishLife
     Standalone: com.DefaultCompany.Fish-Life
   buildNumber:
     Standalone: 0
